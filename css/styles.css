@@ -3,27 +3,42 @@ body {
     min-height: 100%;
 }
 
-.a-container {
-    position: relative;
-    perspective: 800px;
+body {
     background-image: url(jewel.png);
-    background-position: center center; 
-    background-repeat: no-repeat;  
-    background-attachment: fixed;  
-    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.message-row {
-    padding: 60px;
-    border-radius: 10px;
-    background-color: #231F20;
+.container {
+    min-height: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
 }
 
-.back-message {
-    color: #FEF6F1;
+.container .back {
+    display: none;
 }
 
-.form-row {
+form {
     border: 1px #231F20 solid;
     padding: 30px;
     border-radius: 10px;
@@ -31,67 +46,35 @@ body {
     color: #FEF6F1;
 }
 
-.parent {
-    min-height: 100%;
-    /* Fallback for vh unit */
-    min-height: 100vh;
-    /* Make it a flex container */
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    /* Align the bootstrap's container vertically */
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    /* In legacy web browsers such as Firefox 9
-     we need to specify the width of the flex container */
-    width: 100%;
-    /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
-     hence the bootstrap's container won't be aligned to the center anymore.
-     Therefore, we should use the following declarations to get it centered again */
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-}
-
-@media(min-width: 768px) {
-    .form-container {
+@media (min-width:600px) {
+    form {
         width: 600px;
     }
 }
 
-@media(max-width: 768px) {
-    .form-container {
-        width: 90%;
+@media (max-width:600px) {
+    form {
+        width: 100%;
     }
 }
 
-.form-container {
-    min-height: 300px;
+.message {
+    padding: 60px;
+    border-radius: 10px;
+    background-color: #231F20;
+    color: #FEF6F1;
 }
 
-.parent {
-    transform-style: preserve-3d;
-    transition: transform 1s;
+@media (min-width:600px) {
+    .message {
+        width: 600px;
+    }
 }
 
-.parent figure {
-    backface-visibility: hidden;
-    position: absolute;
-}
-
-.parent .back {
-    transform: rotateY( 180deg);
-}
-
-.parent.flipped {
-    transform: rotateY( 180deg);
+@media (max-width:600px) {
+    .message {
+        width: 100%;
+    }
 }
 
 .btn-info {
@@ -102,30 +85,6 @@ body {
 .btn-info:hover {
     background-color: #2396C6;
     border-color: #2396C6;
-}
-
-/* Shrink */
-
-.hvr-shrink {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-}
-
-.hvr-shrink:hover,
-.hvr-shrink:focus,
-.hvr-shrink:active {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
 }
 
 /* Wobble Horizontal */

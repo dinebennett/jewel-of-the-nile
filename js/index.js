@@ -22,8 +22,10 @@ $(".submit-button").click(function () {
         };
         $.post(firebaseUrl, JSON.stringify(person))
             .done(function (msg) {
-                $(".parent").toggleClass("flipped");
+                $(".container").toggleClass("flipped");
+                $(".back").show();
                 $(".front").hide();
+                $(".thank-you").text("THANK YOU " + ($name.toUpperCase().split(" ")[0]));
                 confetti();
             })
             .fail(function (xhr, status, error) {
